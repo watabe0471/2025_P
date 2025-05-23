@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/yamada's_file/Title.unity
     guid: b7a75b26b58b6b949be1b60664907192
   - enabled: 1
-    path: Assets/Scenes/Stage1.unity
+    path: Assets/Scenes/Scene/Stage1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/yamada's_file/GameOver.unity
+    guid: 7be4e492e665633449c5d225593da850
   m_configObjects: {}

@@ -573,7 +573,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c80032130f6945a489e02d5ea4baee30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Stage1: Title
+  Stage1: GameOver
+  Stage2: Title
+  Stage3: 
+  Stage4: 
 --- !u!1001 &587471326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2041,7 +2044,7 @@ GameObject:
   - component: {fileID: 1757366333}
   - component: {fileID: 1757366332}
   m_Layer: 0
-  m_Name: Cube (7)
+  m_Name: BackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2719,5 +2722,5 @@ SceneRoots:
   - {fileID: 378708373}
   - {fileID: 726323869}
   - {fileID: 538850807}
-  - {fileID: 821138266}
   - {fileID: 1757366335}
+  - {fileID: 821138266}

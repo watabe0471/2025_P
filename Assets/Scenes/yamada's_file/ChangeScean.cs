@@ -10,6 +10,10 @@ public class ChangeScean : MonoBehaviour
     [Header("ステージ")]
     //[SerializeField] Scene Stage1;
     [SerializeField] string Stage1;
+    [SerializeField] string Stage2;
+    [SerializeField] string Stage3;
+    [SerializeField] string Stage4;
+
     private GameObject[] BallTag;
 
     public enum e_Stage     // ステージの識別
@@ -28,16 +32,21 @@ public class ChangeScean : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+    }
+    private void FixedUpdate()
+    {
         for (int i = 0; i < BallTag.Length; i++)
         {
             if (BallTag[i] != null)
             {
+                Debug.Log("ボールがまだあります");
                 break;
             }
+            Debug.Log("シーン遷移");
             SceneChange();
         }
     }
-
 
 
 
@@ -50,7 +59,8 @@ public class ChangeScean : MonoBehaviour
         e_Stage NowStage = e_Stage.Stage1;
 
 
-        switch(NowStage)
+
+        switch(NowStage)        // ステージによって様々なステージに移動するように
         {
             case e_Stage.Stage1:
                 SceneManager.LoadScene(Stage1);
