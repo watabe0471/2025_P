@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/yamada's_file/Title.unity
+    guid: b7a75b26b58b6b949be1b60664907192
   m_configObjects: {}
