@@ -4,33 +4,24 @@ using UnityEngine;
 
 public class BallScript : MonoBehaviour
 {
-    public float speed = 2000f;
-
+    //Rigitbodyを扱える変数
     private Rigidbody rb;
-
-
+    // Start is called before the first frame update
     void Start()
     {
+        //2)Rigidbodyを取得して代入
         rb = GetComponent<Rigidbody>();
+
+        //3)右奥方向に力を加える(x.y軸)
+        //力を加える方向を決める
+        Vector3 myDirection = new Vector3(5, 5, 0);
+        
+        rb.AddForce(myDirection,ForceMode.Impulse);//インパルスモードで瞬間的に力を加える
     }
 
-    // 毎フレーム速度をチェックする
+    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            LaunchBall();
-        }
-    }
-
-    void LaunchBall()
-    {
-        Vector3 randomDirection = new Vector3(
-            Random.Range(-0.3f, 0.3f),
-            1f,
-            0f
-        ).normalized;
-
-        rb.AddForce(randomDirection * speed, ForceMode.Impulse);
+        
     }
 }
