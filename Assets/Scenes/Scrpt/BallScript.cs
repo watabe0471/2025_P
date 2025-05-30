@@ -17,7 +17,8 @@ public class BallScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-       
+        audioSource = GetComponent<AudioSource>(); // Audio Source コンポーネントを取得
+
     }
 
     // 毎フレーム速度をチェックする
