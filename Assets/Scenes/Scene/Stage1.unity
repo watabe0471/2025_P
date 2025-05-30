@@ -135,9 +135,10 @@ GameObject:
   - component: {fileID: 89962227}
   - component: {fileID: 89962226}
   - component: {fileID: 89962225}
+  - component: {fileID: 89962229}
   m_Layer: 0
   m_Name: Cube (4)
-  m_TagString: Untagged
+  m_TagString: BlockTypeA
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,7 +184,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 91ea7405c9ba4d146b14eac150a597f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -228,6 +229,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &89962229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89962224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 736c429c1849f3d45a53300c3a21f6ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changedMaterial: {fileID: 2100000, guid: de4f4e745b06ca349a8af2086bc56e9a, type: 2}
 --- !u!1001 &300249766
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -280,6 +294,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5840585270665632230, guid: 0e5ea2d11e7857644a0bf770f0eaed16, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 91ea7405c9ba4d146b14eac150a597f5, type: 2}
     - target: {fileID: 8228248483028423905, guid: 0e5ea2d11e7857644a0bf770f0eaed16, type: 3}
       propertyPath: m_Name
       value: Block (13)
@@ -341,6 +359,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5840585270665632230, guid: 0e5ea2d11e7857644a0bf770f0eaed16, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 91ea7405c9ba4d146b14eac150a597f5, type: 2}
     - target: {fileID: 8228248483028423905, guid: 0e5ea2d11e7857644a0bf770f0eaed16, type: 3}
       propertyPath: m_Name
       value: Block (7)
@@ -362,9 +384,10 @@ GameObject:
   - component: {fileID: 378708372}
   - component: {fileID: 378708371}
   - component: {fileID: 378708370}
+  - component: {fileID: 378708374}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: BlockTypeA
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -410,7 +433,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 91ea7405c9ba4d146b14eac150a597f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -455,6 +478,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &378708374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378708369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 736c429c1849f3d45a53300c3a21f6ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changedMaterial: {fileID: 2100000, guid: de4f4e745b06ca349a8af2086bc56e9a, type: 2}
 --- !u!1 &538850805
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,6 +604,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5840585270665632230, guid: 0e5ea2d11e7857644a0bf770f0eaed16, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 91ea7405c9ba4d146b14eac150a597f5, type: 2}
     - target: {fileID: 8228248483028423905, guid: 0e5ea2d11e7857644a0bf770f0eaed16, type: 3}
       propertyPath: m_Name
       value: Block (2)
@@ -683,9 +723,10 @@ GameObject:
   - component: {fileID: 726323868}
   - component: {fileID: 726323867}
   - component: {fileID: 726323866}
+  - component: {fileID: 726323870}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: BlockTypeA
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -731,7 +772,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 91ea7405c9ba4d146b14eac150a597f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -776,6 +817,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &726323870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726323865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 736c429c1849f3d45a53300c3a21f6ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changedMaterial: {fileID: 2100000, guid: de4f4e745b06ca349a8af2086bc56e9a, type: 2}
 --- !u!1001 &771748247
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -828,6 +882,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5840585270665632230, guid: 0e5ea2d11e7857644a0bf770f0eaed16, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 91ea7405c9ba4d146b14eac150a597f5, type: 2}
     - target: {fileID: 8228248483028423905, guid: 0e5ea2d11e7857644a0bf770f0eaed16, type: 3}
       propertyPath: m_Name
       value: Block (4)
@@ -849,9 +907,10 @@ GameObject:
   - component: {fileID: 800836674}
   - component: {fileID: 800836673}
   - component: {fileID: 800836672}
+  - component: {fileID: 800836676}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: BlockTypeA
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -897,7 +956,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 91ea7405c9ba4d146b14eac150a597f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -942,6 +1001,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &800836676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800836671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 736c429c1849f3d45a53300c3a21f6ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changedMaterial: {fileID: 2100000, guid: de4f4e745b06ca349a8af2086bc56e9a, type: 2}
 --- !u!1001 &836148272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -994,6 +1066,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5840585270665632230, guid: 0e5ea2d11e7857644a0bf770f0eaed16, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 91ea7405c9ba4d146b14eac150a597f5, type: 2}
     - target: {fileID: 8228248483028423905, guid: 0e5ea2d11e7857644a0bf770f0eaed16, type: 3}
       propertyPath: m_Name
       value: Block (12)
@@ -1055,6 +1131,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5840585270665632230, guid: 0e5ea2d11e7857644a0bf770f0eaed16, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 91ea7405c9ba4d146b14eac150a597f5, type: 2}
     - target: {fileID: 8228248483028423905, guid: 0e5ea2d11e7857644a0bf770f0eaed16, type: 3}
       propertyPath: m_Name
       value: Block (3)
@@ -1116,6 +1196,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5840585270665632230, guid: 0e5ea2d11e7857644a0bf770f0eaed16, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 91ea7405c9ba4d146b14eac150a597f5, type: 2}
     - target: {fileID: 8228248483028423905, guid: 0e5ea2d11e7857644a0bf770f0eaed16, type: 3}
       propertyPath: m_Name
       value: Block (11)
@@ -1447,9 +1531,10 @@ GameObject:
   - component: {fileID: 1035170499}
   - component: {fileID: 1035170498}
   - component: {fileID: 1035170497}
+  - component: {fileID: 1035170501}
   m_Layer: 0
   m_Name: Cube (6)
-  m_TagString: Untagged
+  m_TagString: BlockTypeA
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1495,7 +1580,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 91ea7405c9ba4d146b14eac150a597f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1540,6 +1625,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1035170501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035170496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 736c429c1849f3d45a53300c3a21f6ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changedMaterial: {fileID: 2100000, guid: de4f4e745b06ca349a8af2086bc56e9a, type: 2}
 --- !u!1 &1074835957
 GameObject:
   m_ObjectHideFlags: 0
@@ -1552,9 +1650,10 @@ GameObject:
   - component: {fileID: 1074835960}
   - component: {fileID: 1074835959}
   - component: {fileID: 1074835958}
+  - component: {fileID: 1074835962}
   m_Layer: 0
   m_Name: Cube (5)
-  m_TagString: Untagged
+  m_TagString: BlockTypeA
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1600,7 +1699,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 91ea7405c9ba4d146b14eac150a597f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1645,6 +1744,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1074835962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074835957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 736c429c1849f3d45a53300c3a21f6ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changedMaterial: {fileID: 2100000, guid: de4f4e745b06ca349a8af2086bc56e9a, type: 2}
 --- !u!1 &1092427759
 GameObject:
   m_ObjectHideFlags: 0
@@ -1907,6 +2019,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5840585270665632230, guid: 0e5ea2d11e7857644a0bf770f0eaed16, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 91ea7405c9ba4d146b14eac150a597f5, type: 2}
     - target: {fileID: 8228248483028423905, guid: 0e5ea2d11e7857644a0bf770f0eaed16, type: 3}
       propertyPath: m_Name
       value: Block (1)
@@ -2110,6 +2226,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5840585270665632230, guid: 0e5ea2d11e7857644a0bf770f0eaed16, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 91ea7405c9ba4d146b14eac150a597f5, type: 2}
     - target: {fileID: 8228248483028423905, guid: 0e5ea2d11e7857644a0bf770f0eaed16, type: 3}
       propertyPath: m_Name
       value: Block (6)
@@ -2236,9 +2356,10 @@ GameObject:
   - component: {fileID: 2098736649}
   - component: {fileID: 2098736648}
   - component: {fileID: 2098736647}
+  - component: {fileID: 2098736651}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: BlockTypeA
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2284,7 +2405,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 91ea7405c9ba4d146b14eac150a597f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2329,6 +2450,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2098736651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098736646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 736c429c1849f3d45a53300c3a21f6ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changedMaterial: {fileID: 2100000, guid: de4f4e745b06ca349a8af2086bc56e9a, type: 2}
 --- !u!1001 &2127626987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2381,6 +2515,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5840585270665632230, guid: 0e5ea2d11e7857644a0bf770f0eaed16, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 91ea7405c9ba4d146b14eac150a597f5, type: 2}
     - target: {fileID: 8228248483028423905, guid: 0e5ea2d11e7857644a0bf770f0eaed16, type: 3}
       propertyPath: m_Name
       value: Block (5)
@@ -2503,6 +2641,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5840585270665632230, guid: 0e5ea2d11e7857644a0bf770f0eaed16, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 91ea7405c9ba4d146b14eac150a597f5, type: 2}
     - target: {fileID: 8228248483028423905, guid: 0e5ea2d11e7857644a0bf770f0eaed16, type: 3}
       propertyPath: m_Name
       value: Block
