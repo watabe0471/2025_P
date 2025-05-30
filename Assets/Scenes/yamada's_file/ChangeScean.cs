@@ -36,7 +36,7 @@ public class ChangeScean : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        for (int i = 0; i < BallTag.Length; i++)
+        for (int i = 0; i <     BallTag.Length; i++)
         {
             if (BallTag[i] != null)
             {

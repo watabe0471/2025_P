@@ -7,6 +7,7 @@ public class BallScript : MonoBehaviour
     public float speed = 2000f;
 
     private Rigidbody rb;
+
     private bool GameState = false; // ゲームスタートフラグ
 
 
@@ -22,6 +23,7 @@ public class BallScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && GameState == false)
         {
             LaunchBall();
+            
             GameState = true; // ゲームがスタートした
 
         }
