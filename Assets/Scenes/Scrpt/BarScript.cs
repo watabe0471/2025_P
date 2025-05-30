@@ -26,7 +26,7 @@ public class BarScript : MonoBehaviour
 
         transform.position += new Vector3(moveX, moveY, 0); // オブジェクトの位置を更新
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.B))
         {
             LaunchBall();
         }
