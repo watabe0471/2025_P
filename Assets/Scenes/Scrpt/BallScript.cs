@@ -8,6 +8,9 @@ public class BallScript : MonoBehaviour
 
     private Rigidbody rb;
 
+    public AudioClip audioClip; // 効果音
+    private AudioSource audioSource; // AudioSource
+
     private bool GameState = false; // ゲームスタートフラグ
 
 
@@ -43,5 +46,9 @@ public class BallScript : MonoBehaviour
     void OnBecameInvisible()
     {
         Destroy(gameObject);    
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        audioSource.PlayOneShot(audioClip); // 効果音を鳴らす
     }
 }

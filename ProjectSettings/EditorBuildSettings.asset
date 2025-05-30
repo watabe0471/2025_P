@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/yamada's_file/GameOver.unity
     guid: 7be4e492e665633449c5d225593da850
+  - enabled: 1
+    path: Assets/Scenes/yamada's_file/GameClear.unity
+    guid: 6b69a6daf4b6b2745aa72c26f81444d5
   m_configObjects: {}
