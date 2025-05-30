@@ -14,7 +14,8 @@ public class ChangeScean : MonoBehaviour
     [SerializeField] string Stage3;
     [SerializeField] string Stage4;
 
-    private GameObject[] BallTag;
+    private GameObject[] BallTags;
+    private GameObject[] BlockTags;
 
     public enum e_Stage     // ステージの識別
     {
@@ -36,18 +37,24 @@ public class ChangeScean : MonoBehaviour
     // フレーム毎のUpdateS
     private void FixedUpdate()
     {
-        BallTag = GameObject.FindGameObjectsWithTag("Ball");
-        Debug.Log(BallTag.Length); //tagObjects.Lengthはオブジェクトの数
-        if (BallTag.Length == 0)
+        BallTags = GameObject.FindGameObjectsWithTag("Ball");
+        Debug.Log(BallTags.Length); //tagObjects.Lengthはオブジェクトの数
+        if (BallTags.Length == 0)
         {
             Debug.Log("Ballタグがついたオブジェクトはありません");
-            SceneChange();
+            SceneChange(e_Stage.Stage1);
         }
+        BlockTags = GameObject.FindGameObjectsWithTag("BlockTypeB");
+        if (BlockTags.Length==0)
+        {
+            SceneChange(e_Stage.Stage3);
+        }
+
+
     }
-    public void SceneChange()
+    public void SceneChange(e_Stage NowStage)
     {
         // テスト
-        e_Stage NowStage = e_Stage.Stage1;
 
         switch(NowStage)        // ステージによって様々なステージに移動するように
         {
@@ -57,7 +64,10 @@ public class ChangeScean : MonoBehaviour
             case e_Stage.Stage2:
 
                 break;
-
+            case e_Stage.Stage3:
+                SceneManager.LoadScene(Stage3);
+                break;
+                
             default:
 
                 break;
