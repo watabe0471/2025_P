@@ -26,7 +26,6 @@ public class ChangeScean : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        BallTag = GameObject.FindGameObjectsWithTag("Ball");
     }
 
     // Update is called once per frame
@@ -34,31 +33,21 @@ public class ChangeScean : MonoBehaviour
     {
 
     }
+    // フレーム毎のUpdateS
     private void FixedUpdate()
     {
-        for (int i = 0; i <     BallTag.Length; i++)
+        BallTag = GameObject.FindGameObjectsWithTag("Ball");
+        Debug.Log(BallTag.Length); //tagObjects.Lengthはオブジェクトの数
+        if (BallTag.Length == 0)
         {
-            if (BallTag[i] != null)
-            {
-                Debug.Log("ボールがまだあります");
-                break;
-            }
-            Debug.Log("シーン遷移");
+            Debug.Log("Ballタグがついたオブジェクトはありません");
             SceneChange();
         }
     }
-
-
-
-
-
-
     public void SceneChange()
     {
         // テスト
         e_Stage NowStage = e_Stage.Stage1;
-
-
 
         switch(NowStage)        // ステージによって様々なステージに移動するように
         {
