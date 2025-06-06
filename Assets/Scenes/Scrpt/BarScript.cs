@@ -33,11 +33,11 @@ public class BarScript : MonoBehaviour
 
 
         }
-    void LaunchBall()
+    public void LaunchBall()
     {
         Vector3 ballShootPos = new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z);
         GameObject newBall = Instantiate(ballPrefab,ballShootPos, Quaternion.identity);
-        newBall.tag = "Ball";
+        newBall.tag = "Ball";   // クローンにタグBallを追加
         
         Vector3 randomDirection = new Vector3(
     Random.Range(0f, 3f),
