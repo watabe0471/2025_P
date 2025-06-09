@@ -5,6 +5,9 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
 
+    [Header("球のオブジェクト")]
+    [SerializeField] private GameObject ballPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,11 +28,15 @@ public class Item : MonoBehaviour
 
         switch (ItemNum)
         {
-            case 0:
-
+            case 0:         // 分裂球
+                // ボールを生成
+                Vector3 ballShootPos = new Vector3(/*ボールの現在位置*/0,0, transform.position.z);
+                GameObject newBall = Instantiate(ballPrefab, ballShootPos, Quaternion.identity);
+                newBall.tag = "Ball";   // クローンにタグBallを追加
+                // ボールを発射
 
                 break;
-
+                 
             default:
                 break;
 

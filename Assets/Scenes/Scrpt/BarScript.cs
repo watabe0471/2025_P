@@ -35,6 +35,7 @@ public class BarScript : MonoBehaviour
         }
     public void LaunchBall()
     {
+        // 球を生成
         Vector3 ballShootPos = new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z);
         GameObject newBall = Instantiate(ballPrefab,ballShootPos, Quaternion.identity);
         newBall.tag = "Ball";   // クローンにタグBallを追加
