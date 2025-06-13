@@ -13,7 +13,7 @@ public class NonBrakeScript : MonoBehaviour
         // ボールがぶつかってきた場合のみ処理
         if (collision.gameObject.CompareTag("Ball"))
         {
-            string blockTypeTag = this.gameObject.tag;
+            string blockTypeTag = this.gameObject.tag;  // タグ
 
             // 同じ種類のブロックをすべて取得
             GameObject[] sameTypeBlocks = GameObject.FindGameObjectsWithTag(blockTypeTag);
