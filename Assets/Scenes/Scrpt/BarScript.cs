@@ -6,7 +6,8 @@ public class BarScript : MonoBehaviour
 {
     public float moveSpeed = 20.0f; // 移動速度
     public float speed = 10.0f; // 球の移動速度
-    private bool StartGame = true;
+
+    private bool shoot = false;
     GameObject newBall = null;
 
     [Header("球のオブジェクト")]
@@ -16,7 +17,10 @@ public class BarScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        // LaunchBall(ballPrefab);   // 初期球を設置
+
+        Vector3 ballShootPos = new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z);
+        newBall = Instantiate(ballPrefab, ballShootPos, Quaternion.identity);
+        newBall.tag = "Ball";   // クローンにタグBallを追加
 
     }
 
@@ -27,40 +31,28 @@ public class BarScript : MonoBehaviour
 
         transform.position += new Vector3(moveX, moveY, 0); // オブジェクトの位置を更新
 
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.Space))
+            shoot = true;
+        if (shoot == false)
         {
-            LaunchBall(ballPrefab);
+            newBall.transform.position = transform.position + new Vector3(0.0f, 1.0f, 0.0f);
         }
-
-        Vector3 ballShootPos = new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z);
-        if (StartGame == true)
-        {
-            newBall = Instantiate(ballPrefab, ballShootPos, Quaternion.identity);
-            newBall.tag = "Ball";   // クローンにタグBallを追加
-            // newBall.transform.parent = transform;
-
-            StartGame = false;
-        }
-        
-         newBall.transform.position = transform.position + new Vector3(0.0f, 1.0f, 0.0f);
-
-        }
-    public void LaunchBall(GameObject newBall)
-    {
-        
-        // 球を生成
-        Vector3 ballShootPos = new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z);
-        newBall = Instantiate(ballPrefab,ballShootPos, Quaternion.identity);
-        newBall.tag = "Ball";   // クローンにタグBallを追加
-    
-        Vector3 randomDirection = new Vector3(
-    Random.Range(0f, 3f),
-    1f,
-    0f
-).normalized;
-        
 
     }
+//    public void LaunchBall(GameObject newBall)
+//    {
+        
+//        // 球を生成
+//        Vector3 ballShootPos = new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z);
+//        newBall = Instantiate(ballPrefab,ballShootPos, Quaternion.identity);
+//        newBall.tag = "Ball";   // クローンにタグBallを追加
+    
+//        Vector3 randomDirection = new Vector3(
+//    Random.Range(0f, 3f),
+//    1f,
+//    0f
+//).normalized;
+//    }
 
 
 }
