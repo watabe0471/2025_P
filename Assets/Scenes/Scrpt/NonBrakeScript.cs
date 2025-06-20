@@ -5,7 +5,7 @@ using UnityEngine;
 public class NonBrakeScript : MonoBehaviour
 {
     public Material changedMaterial;
-
+    [SerializeField] private GameObject G_Material;
     private Dictionary<GameObject, Material> originalMaterial = new Dictionary<GameObject, Material>();
 
     private void OnCollisionEnter(Collision collision)
@@ -20,7 +20,13 @@ public class NonBrakeScript : MonoBehaviour
 
             foreach (GameObject block in sameTypeBlocks)
             {
-                Renderer rend = block.GetComponent<Renderer>();
+                Debug.Log("‹…‚ª‰ó‚ê‚È‚¢•Ç‚É“–‚½‚Á‚½");
+                Vector3 AnimePos = new Vector3(block.transform.position.x, block.transform.position.y, block.transform.position.z + -0.55f);
+                Instantiate(G_Material, AnimePos, Quaternion.identity);
+
+
+
+                /*Renderer rend = block.GetComponent<Renderer>();
                 if (rend != null)
                 {
                     if(!originalMaterial.ContainsKey(block))
@@ -30,6 +36,7 @@ public class NonBrakeScript : MonoBehaviour
 
                     rend.material = changedMaterial;
                 }
+                */
             }
 
             StartCoroutine(RestoreMaterialAfterDelay(sameTypeBlocks, 5f));

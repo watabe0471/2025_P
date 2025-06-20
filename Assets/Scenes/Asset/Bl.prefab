@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8939262447048671494}
   - component: {fileID: 4806615879336335947}
+  - component: {fileID: -234935182321606003}
   - component: {fileID: 8214881171689323217}
   m_Layer: 0
   m_Name: Bl
@@ -85,6 +86,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-234935182321606003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9101009447736875041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64408a114c69d524985fcd61d907f691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &8214881171689323217
 Animator:
   serializedVersion: 5

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ChangeScean : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class ChangeScean : MonoBehaviour
     private GameObject[] BallTags;
     private GameObject[] BlockTags;
 
+    [SerializeField] GameObject ClearUI;
+    [SerializeField] Toggle ClearToggle;
+
     public enum e_Stage     // ステージの識別
     {
         Stage1,
@@ -27,6 +31,7 @@ public class ChangeScean : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ClearToggle.interactable = false;
     }
 
     // Update is called once per frame
@@ -39,15 +44,21 @@ public class ChangeScean : MonoBehaviour
     {
         BallTags = GameObject.FindGameObjectsWithTag("Ball");
         Debug.Log(BallTags.Length); //tagObjects.Lengthはオブジェクトの数
+        // ゲーム内のボールが全て無くなったら
         if (BallTags.Length == 0)
         {
+            Time.timeScale = 0;
+
             Debug.Log("Ballタグがついたオブジェクトはありません");
-            SceneChange(e_Stage.Stage1);
+            // SceneChange(e_Stage.Stage1);
         }
+        // ゲーム内の破壊可能オブジェクトが無くなったら
         BlockTags = GameObject.FindGameObjectsWithTag("BlockTypeB");
         if (BlockTags.Length==0)
         {
-            SceneChange(e_Stage.Stage3);
+            ClearToggle.interactable = true;
+            Time.timeScale = 0;   // ゲームを止める
+            // SceneChange(e_Stage.Stage3);
         }
 
 
