@@ -22,6 +22,7 @@ public class BarScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
+        // ボールを生成
         Vector3 ballShootPos = new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z);
         newBall = Instantiate(ballPrefab, ballShootPos, Quaternion.identity);
         newBall.tag = "Ball";   // クローンにタグBallを追加
@@ -32,13 +33,15 @@ public class BarScript : MonoBehaviour
     {
         float moveX = Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime; // 水平方向の移動量
         float moveY = Input.GetAxisRaw("Vertical") * moveSpeed * Time.deltaTime;   // 垂直方向の移動
-        Debug.Log(moveX);
-        // Vector3 movement =  new Vector3(Mathf.Clamp(moveX,-XLimit,XLimit),Mathf.Clamp(moveY,-YLimit,YLimit), 0); // オブジェクトの位置を更新
         transform.position += new Vector3(moveX, moveY, 0);
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -XLimit, XLimit), Mathf.Clamp(transform.position.y, -YLimit, YLimit-1.0f), 0);
+        // 画面から飛び出ない様に
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -XLimit, XLimit), Mathf.Clamp(transform.position.y, -YLimit, YLimit-1.0f), 0);   
+        // Mathf.Clamp(制限したい値、最小値、最大値)
 
+        // スペースで打つ
         if (Input.GetKeyDown(KeyCode.Space))
             shoot = true;
+        // 打っていなければ追従
         if (shoot == false)
         {
             newBall.transform.position = transform.position + new Vector3(0.0f, 1.0f, 0.0f);

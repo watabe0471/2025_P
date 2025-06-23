@@ -18,8 +18,16 @@ public class ChangeScean : MonoBehaviour
     private GameObject[] BallTags;
     private GameObject[] BlockTags;
 
-    [SerializeField] GameObject ClearUI;
-    [SerializeField] Toggle ClearToggle;
+    [Header("クリア時のUI")]
+    [SerializeField] GameObject ClearUI;    // クリア時に表示される文字
+    [SerializeField] Toggle ClearToggle;    // 背景のオンオフ
+    [SerializeField] Vector3 UIpos = new Vector3(0.0f, 6.0f,-1.0f); // UIの表示場所
+
+    [Header("ゲームオーバー時のUI")]
+    [SerializeField] GameObject OverUI;    // クリア時に表示される文字
+    [SerializeField] Toggle OverToggle;    // 背景のオンオフ
+    [SerializeField] GameObject RetryUI;
+
 
     private string NextSceneName;    // 現在シーン名
     private GameSit NowGame = GameSit.InGame;   // ゲームの状態
@@ -61,18 +69,20 @@ public class ChangeScean : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (GameMode == true)
         {
-            Time.timeScale = 1;
             switch (NowGame)
             {
 
                 case GameSit.GameOver:  // ゲームオーバーなら
+
                     if (Input.GetKeyDown(KeyCode.Space))
                     {
                         GameMode = false;
                         Debug.Log(GameMode);
                         Debug.Log("ゲームオーバーになってもう一度開始しました");
+                        Time.timeScale = 1;
                         SceneManager.LoadScene(SceneManager.GetActiveScene().name);    // 現在のシーンへ
                     }
                     break;
@@ -80,6 +90,7 @@ public class ChangeScean : MonoBehaviour
                 case GameSit.GameClear: // ゲームクリアなら
                     GameMode = false;
                     Debug.Log("ステージをclearしました");
+                    Time.timeScale = 1;
                     SceneChange(e_nowStage);
 
                     break;
@@ -99,17 +110,20 @@ public class ChangeScean : MonoBehaviour
         if (BallTags.Length == 0)
         {
             NowGame = GameSit.GameOver;
-            Time.timeScale = 0; // ゲームを止める
-            GameMode = true;
+            OverToggle.interactable = true;    // 背景を不透明に
+            Instantiate(OverUI, UIpos, Quaternion.identity);   // ゲームオーバーの文字を表示
+            Time.timeScale = 0;     // ゲームを止める
+            GameMode = true;        // 止まった時フラグ
+            Debug.Log("ゲームが止まった");
         }
         // ゲーム内の破壊可能オブジェクトが無くなったら
         BlockTags = GameObject.FindGameObjectsWithTag("BlockTypeB");
         if (BlockTags.Length==0)
         {
             NowGame = GameSit.GameClear;
-            ClearToggle.interactable = true;
-            Time.timeScale = 0;   // ゲームを止める
-            GameMode = true;
+            ClearToggle.interactable = true;    // 背景を不透明に
+            Time.timeScale = 0;     // ゲームを止める
+            GameMode = true;        // 止まった時フラグ
         }
 
 

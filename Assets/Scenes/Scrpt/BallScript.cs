@@ -50,6 +50,10 @@ public class BallScript : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
+        // •’Ê‚Ì‚à‚Ì‚É“–‚½‚Á‚½‚ç–Â‚ç‚È‚¢
+        if (collision.gameObject.tag == default)
+            return;
+
         audioSource.PlayOneShot(audioClip); // Œø‰Ê‰¹‚ğ–Â‚ç‚·
     }
 }

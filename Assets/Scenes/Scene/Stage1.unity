@@ -676,8 +676,11 @@ MonoBehaviour:
   Stage2: Stage2
   Stage3: Stage3
   Stage4: GameClear
-  ClearUI: {fileID: 1431481552}
+  ClearUI: {fileID: 3250589135514736681, guid: 3c31894fd769edf4f86ed055c74e09d0, type: 3}
   ClearToggle: {fileID: 1431481556}
+  UIpos: {x: 0, y: 6, z: -1}
+  OverUI: {fileID: 3250589135514736681, guid: 3c31894fd769edf4f86ed055c74e09d0, type: 3}
+  OverToggle: {fileID: 1431481556}
 --- !u!1001 &544041514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1314,8 +1317,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   speed: 10
-  XLimit: 1000
-  YLimit: 10
+  XLimit: 15.5
+  YLimit: 9
   ballPrefab: {fileID: 3698492341016241133, guid: ae4996c57377be64ea91ba1d1023905f, type: 3}
 --- !u!1 &920916287
 GameObject:
