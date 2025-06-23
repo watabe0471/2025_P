@@ -44,18 +44,18 @@ public class ChangeScean : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ClearToggle.interactable = false;
+        ClearToggle.interactable = false;   // UIを透明に
         NextSceneName = SceneManager.GetActiveScene().name;
 
         // ステージ名から次のステージを取得
-        if (NextSceneName == Stage1)
-            e_nowStage = e_Stage.Stage2;
-        else if (NextSceneName == Stage2)
-            e_nowStage = e_Stage.Stage3;
-        else if (NextSceneName == Stage3)
-            e_nowStage = e_Stage.Stage4;
-
-        Debug.Log("シーン名:" + NextSceneName);
+        {
+            if (NextSceneName == Stage1)
+                e_nowStage = e_Stage.Stage2;
+            else if (NextSceneName == Stage2)
+                e_nowStage = e_Stage.Stage3;
+            else if (NextSceneName == Stage3)
+                e_nowStage = e_Stage.Stage4;
+        }
     }
 
     // Update is called once per frame
@@ -68,10 +68,13 @@ public class ChangeScean : MonoBehaviour
             {
 
                 case GameSit.GameOver:  // ゲームオーバーなら
-                    GameMode = false;
-                    Debug.Log(GameMode);
-                    Debug.Log("ゲームオーバーになってもう一度開始しました");
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);    // 現在のシーンへ
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        GameMode = false;
+                        Debug.Log(GameMode);
+                        Debug.Log("ゲームオーバーになってもう一度開始しました");
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().name);    // 現在のシーンへ
+                    }
                     break;
 
                 case GameSit.GameClear: // ゲームクリアなら

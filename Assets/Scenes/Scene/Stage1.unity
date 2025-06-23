@@ -1294,7 +1294,7 @@ Transform:
   m_GameObject: {fileID: 920660980}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -7.99, z: 0}
+  m_LocalPosition: {x: 0, y: -8, z: 0}
   m_LocalScale: {x: 2.84, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1314,6 +1314,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   speed: 10
+  XLimit: 1000
+  YLimit: 10
   ballPrefab: {fileID: 3698492341016241133, guid: ae4996c57377be64ea91ba1d1023905f, type: 3}
 --- !u!1 &920916287
 GameObject:
@@ -2212,7 +2214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6528301, g: 0.64420784, b: 0.64420784, a: 0.52156866}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.7607843}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
