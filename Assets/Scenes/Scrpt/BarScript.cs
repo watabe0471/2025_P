@@ -11,8 +11,8 @@ public class BarScript : MonoBehaviour
     GameObject newBall = null;
 
     [Header("画面上限")]
-    [SerializeField] private float XLimit = 10.0f;
-    [SerializeField] private float YLimit = 10.0f;
+    [SerializeField] private float XLimit = 15.5f;
+    [SerializeField] private float YLimit = 9.0f;
 
     [Header("球のオブジェクト")]
     [SerializeField] private GameObject ballPrefab;

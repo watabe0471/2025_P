@@ -8,7 +8,7 @@ public class BallScript : MonoBehaviour
 
     private Rigidbody rb;
 
-    public AudioClip audioClip; // 効果音
+    [SerializeField] private AudioClip audioClip = null; // 効果音
     private AudioSource audioSource; // AudioSource
 
     private bool GameState = false; // ゲームスタートフラグ
@@ -50,10 +50,12 @@ public class BallScript : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        // 普通のものに当たったら鳴らない
-        if (collision.gameObject.tag == default)
-            return;
-
-        audioSource.PlayOneShot(audioClip); // 効果音を鳴らす
+        if(audioClip != null)
+        {
+            // 普通のものに当たったら鳴らない
+            if (collision.gameObject.tag == default)
+                return;
+            audioSource.PlayOneShot(audioClip); // 効果音を鳴らす
+        }
     }
 }
