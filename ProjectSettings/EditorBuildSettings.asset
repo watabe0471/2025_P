@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Scene/DemoStage.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/Scenes/Scene/Stage4.unity
+    guid: 9ddb9a5b73586ac4e8f0f52f7c046ec8
+  - enabled: 1
     path: Assets/Scenes/yamada's_file/GameOver.unity
     guid: 7be4e492e665633449c5d225593da850
   - enabled: 1

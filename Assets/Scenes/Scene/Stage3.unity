@@ -283,7 +283,7 @@ MonoBehaviour:
   Stage1: Stage1
   Stage2: Stage2
   Stage3: Stage3
-  Stage4: 
+  Stage4: Stage4
   ClearUI: {fileID: 1431481552}
   ClearToggle: {fileID: 1431481556}
   UIpos: {x: 0, y: 6, z: -1}
