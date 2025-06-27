@@ -254,11 +254,10 @@ MonoBehaviour:
   Stage3: Stage3
   Stage4: 
   ClearUI: {fileID: 0}
-  ClearToggle: {fileID: 0}
   UIpos: {x: 0, y: 6, z: -1}
   OverUI: {fileID: 3250589135514736681, guid: 3c31894fd769edf4f86ed055c74e09d0, type: 3}
-  OverToggle: {fileID: 0}
   RetryUI: {fileID: 0}
+  ClearBack: {fileID: 7475497732465777709, guid: 25f0cd617ee653549ad9a85e0508dfc9, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
