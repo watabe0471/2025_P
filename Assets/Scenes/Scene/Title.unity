@@ -719,7 +719,6 @@ GameObject:
   - component: {fileID: 1579782285}
   - component: {fileID: 1579782284}
   - component: {fileID: 1579782283}
-  - component: {fileID: 1579782286}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -734,12 +733,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579782282}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40c4e59be2f8f164c9a18dd722a14811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Stage1: Stage1
+  _fadePanel: {fileID: 1961041018}
+  _fadeTime: 0.7
 --- !u!114 &1579782284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -767,20 +768,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1579782286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1579782282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 346ce39c0da962d4880cc7650655d4c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _fadePanel: {fileID: 1961041018}
-  _fadeTime: 0.7
 --- !u!1 &1961041017
 GameObject:
   m_ObjectHideFlags: 0

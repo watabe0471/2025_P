@@ -13,7 +13,6 @@ public class FadeSample : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _fadeAlpha = 1.0f;
         Debug.Log("フェード始めました");
         _isfadeIn = true;
     }
