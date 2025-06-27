@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ComingSoon : MonoBehaviour
 {
-    [SerializeField] private float Timer = 10.0f;
+    [SerializeField] private string Title = null;
+
+    [SerializeField] private float Timer = 3.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +18,11 @@ public class ComingSoon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Timer =- Time.deltaTime;
-
+        Timer = Timer - Time.deltaTime;
+        Debug.Log(Timer);
+        if(Timer < 0.0f)
+        {
+            SceneManager.LoadScene(Title);
+        }
     }
 }

@@ -252,9 +252,10 @@ MonoBehaviour:
   Stage1: Stage1
   Stage2: Stage2
   Stage3: Stage3
-  Stage4: 
-  ClearUI: {fileID: 0}
-  UIpos: {x: 0, y: 6, z: -1}
+  Stage4: Stage4
+  ClearUI: {fileID: 2680115895441667878, guid: 9db22cad939b2674b91bc9184dc3cc60, type: 3}
+  UIpos: {x: 0, y: 6, z: -1.5}
+  BGpos: {x: 0, y: 0, z: -1.2}
   OverUI: {fileID: 3250589135514736681, guid: 3c31894fd769edf4f86ed055c74e09d0, type: 3}
   RetryUI: {fileID: 0}
   ClearBack: {fileID: 7475497732465777709, guid: 25f0cd617ee653549ad9a85e0508dfc9, type: 3}
@@ -1156,7 +1157,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 553dc7b991b0bdd40852a22cb6caf105, type: 2}
+  - {fileID: 2100000, guid: 55a4c6538f4acee4db7ad806df87d7dc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

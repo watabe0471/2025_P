@@ -20,12 +20,12 @@ public class ChangeScean : MonoBehaviour
 
     [Header("クリア時のUI")]
     [SerializeField] GameObject ClearUI;    // クリア時に表示される文字
-                                            // [SerializeField] Toggle ClearToggle;    // 背景のオンオフ
-    [SerializeField] Vector3 UIpos = new Vector3(0.0f, 6.0f, -1.0f); // UIの表示場所
+    
+    [SerializeField] Vector3 UIpos = new Vector3(0.0f, 6.0f, -2.0f); // UIの表示場所
+    [SerializeField] Vector3 BGpos = new Vector3(0.0f, 0.0f, -1.2f);
 
     [Header("ゲームオーバー時のUI")]
-    [SerializeField] GameObject OverUI;    // クリア時に表示される文字
-    //[SerializeField] Toggle OverToggle;    // 背景のオンオフ
+    [SerializeField] GameObject OverUI;    // オーバー時に表示される文字
     [SerializeField] GameObject RetryUI;
 
     public GameObject ClearBack; //クリア、ゲームオーバー時の背景
@@ -114,7 +114,7 @@ public class ChangeScean : MonoBehaviour
         {
             NowGame = GameSit.GameOver;
             //OverToggle.interactable = true;    // 背景を不透明に
-            Instantiate(ClearBack, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);//不透明の背景を表示
+            Instantiate(ClearBack, BGpos, Quaternion.identity);//不透明の背景を表示
             Instantiate(OverUI, UIpos, Quaternion.identity);   // ゲームオーバーの文字を表示
             Time.timeScale = 0;     // ゲームを止める
             GameMode = true;        // 止まった時フラグ
@@ -126,9 +126,11 @@ public class ChangeScean : MonoBehaviour
         {
             NowGame = GameSit.GameClear;
             //ClearToggle.interactable = true;    // 背景を不透明に
-            Instantiate(ClearBack, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);//不透明の背景を表示
+            Instantiate(ClearBack, BGpos, Quaternion.identity);//不透明の背景を表示
+            Instantiate(ClearUI, UIpos, Quaternion.identity);   // ゲームオーバーの文字を表示
             Time.timeScale = 0;     // ゲームを止める
             GameMode = true;        // 止まった時フラグ
+            Debug.Log("ゲームが止まった");
         }
 
 
