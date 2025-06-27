@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class kanichange : MonoBehaviour
 {
-    [SerializeField] private string title; 
+    [SerializeField] private string Stage1; 
 
     // Start is called before the first frame update
     void Start()
@@ -16,9 +16,9 @@ public class kanichange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.E))
+        if(Input.anyKey)
         {
-            SceneManager.LoadScene(title);
+            SceneManager.LoadScene(Stage1);
         }
     }
 }
