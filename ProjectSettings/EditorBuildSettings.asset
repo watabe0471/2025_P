@@ -9,14 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Scene/Title.unity
     guid: b7a75b26b58b6b949be1b60664907192
   - enabled: 1
-    path: Assets/Scenes/Scene/DemoStage.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/Scene/Stage1.unity
+    guid: bf8d53ae467483d46be842c4c0ba7c11
   - enabled: 1
     path: Assets/Scenes/Scene/Stage2.unity
     guid: d237ee887bb0609488ae88ed84ba0c99
   - enabled: 1
     path: Assets/Scenes/Scene/Stage3.unity
     guid: dd2c59789b9bca24caf3a004d7fa2ab5
+  - enabled: 1
+    path: Assets/Scenes/Scene/DemoStage.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/yamada's_file/GameOver.unity
     guid: 7be4e492e665633449c5d225593da850
