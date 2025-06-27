@@ -7,14 +7,15 @@ TagManager:
   - Ball
   - BlockTypeA
   - BlockTypeB
+  - bar
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Item
   - Water
   - UI
-  - 
+  - bar
   - 
   - 
   - 
