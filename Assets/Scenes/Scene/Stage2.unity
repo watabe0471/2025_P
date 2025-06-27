@@ -366,9 +366,9 @@ GameObject:
   - component: {fileID: 920660983}
   - component: {fileID: 920660982}
   - component: {fileID: 920660986}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bar
-  m_TagString: Untagged
+  m_TagString: bar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -939,6 +939,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1299440685}
   - component: {fileID: 1299440686}
+  - component: {fileID: 1299440687}
   m_Layer: 0
   m_Name: CreateStage
   m_TagString: Untagged
@@ -975,6 +976,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BreakBlock: {fileID: 8228248483028423905, guid: b0ba78537a218b6488376517d116f4e0, type: 3}
   NoBreakBlock: {fileID: 2519325780575665143, guid: b728c57ab19958243a5714d5b64ba702, type: 3}
+--- !u!114 &1299440687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299440683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9db899789e8e3e419fa6dc7418edc45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemPrefab: {fileID: 7244255421683898488, guid: c122f136bc8450f4490a0a1c8d464cc9, type: 3}
+  spawnInterval: 10
+  spawnRangeX: {x: -16, y: 16}
+  spawnHeight: 10
 --- !u!1 &1431481552
 GameObject:
   m_ObjectHideFlags: 0
