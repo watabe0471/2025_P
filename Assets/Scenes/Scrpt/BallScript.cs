@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class BallScript : MonoBehaviour
 {
-    public float speed = 2000f;
+    [SerializeField] public static float speed = 10f;
 
-    private Rigidbody rb;
+    private static Rigidbody rb;
+    public static Vector3 velo;
 
     [SerializeField] private AudioClip audioClip = null; // 効果音
     private AudioSource audioSource; // AudioSource
@@ -31,6 +32,9 @@ public class BallScript : MonoBehaviour
             GameState = true; // ゲームがスタートした
 
         }
+        rb = GetComponent<Rigidbody>();
+        velo = rb.velocity;
+        Debug.Log(velo);
     }
 
     void LaunchBall()
@@ -50,12 +54,44 @@ public class BallScript : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
+
+//        rb = GetComponent<Rigidbody>();
+        //if (rb != null)
+        //{
+
+        //    var Directionz     = rb.velocity;
+        //    var nomal = new Vector3(0.0f, 1.0f, 0.0f);
+        //        //collision.gameObject.transform.up;
+        //    var result = Vector3.Reflect(Direction, nomal);
+        //    Debug.Log("result" + result + "Direction" + Direction);
+
+
+            
+        //    if (collision.gameObject.tag == "bar")
+        //    {
+
+        //            rb.AddForce(result, ForceMode.Impulse);
+        //    }
+        //}
+        //else
+        //{
+        //    Debug.Log("nullになってる");
+        //}
+        // 音を鳴らす
         if(audioClip != null)
         {
-            // 普通のものに当たったら鳴らない
-            if (collision.gameObject.tag == default)
-                return;
-            audioSource.PlayOneShot(audioClip); // 効果音を鳴らす
+            // ブロックAに当たったら
+            if (collision.gameObject.tag == "BlockTypeA")
+            {
+                Debug.Log("ブロックに当たった");
+                audioSource.PlayOneShot(audioClip); // 効果音を鳴らす
+            }
+            // ブロックBに当たったら
+            if (collision.gameObject.tag == "BlockTypeB")
+            {
+                Debug.Log("ブロックに当たった");
+                audioSource.PlayOneShot(audioClip); // 効果音を鳴らす
+            }
         }
     }
 }

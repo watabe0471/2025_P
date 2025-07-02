@@ -11,8 +11,10 @@ public class ItemScript : MonoBehaviour
 
     public GameObject ballPrefab;         // 生成するボールPrefab
     public Transform ballSpawnPoint;      // ボール生成位置
-
+    private Transform ballnowPosition = null;   // ボールの今の位置
     private Rigidbody rb;
+
+    private GameObject newBall = null;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +29,7 @@ public class ItemScript : MonoBehaviour
                 ballSpawnPoint = barObj.transform;
             }
         }
-
+        
     }
 
     // Update is called once per frame
@@ -48,21 +50,39 @@ public class ItemScript : MonoBehaviour
         // バーに当たった判定（タグ"Bar"）
         if (other.CompareTag("bar"))
         {
-            // バーの位置からYを1.0f上げた場所にボール生成
-            Vector3 spawnPos = other.transform.position;
-            spawnPos.y += 1.0f;
-
-            if (ballPrefab != null)
+            int ItemNum = ItemSpawn.spawnNum;   // アイテム番号を取得
+            if (ballPrefab == null)
             {
-                Instantiate(ballPrefab, spawnPos, Quaternion.identity);
+                return;
             }
-            else
+                switch (ItemNum)
             {
-                Debug.LogWarning("ballPrefabが設定されていません！");
-            }
+                case 0:
 
-            // アイテムを消す
-            Destroy(gameObject);
+                    // バーの位置からYを1.0f上げた場所にボール生成
+                    Vector3 spawnPos1 = other.transform.position;
+                    spawnPos1.y += 1.0f;
+
+
+                    newBall = Instantiate(ballPrefab, spawnPos1, Quaternion.identity);
+
+                    // アイテムを消す
+                    Destroy(gameObject);
+                    return;
+                case 1:
+                    return;
+                    Vector3 spawnPos2 = BarScript.newBall.transform.position;
+
+                    var Direction = BallScript.velo;
+                    var nomal = new Vector3(0.0f, 1.0f, 0.0f);
+                    var result = Vector3.Reflect(Direction, nomal);
+                    Instantiate(ballPrefab, spawnPos2, Quaternion.identity);
+                    rb.AddForce(result * BallScript.speed, ForceMode.Impulse);
+
+                    // アイテムを消す
+                    Destroy(gameObject);
+                    return;
+            }
         }
     }
 }

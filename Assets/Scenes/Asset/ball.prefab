@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3517155553252828776}
   - component: {fileID: 9062677455632827892}
   - component: {fileID: 8356734172924437317}
+  - component: {fileID: 552349622349232602}
   - component: {fileID: 494960574994223375}
   - component: {fileID: 8769492011553568701}
   - component: {fileID: -2411278649908327421}
@@ -102,12 +103,35 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &552349622349232602
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3698492341016241133}
+  m_Material: {fileID: 13400000, guid: 2519e5420b4e322468f6cd3870b75b2d, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1.4
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: -0.2}
 --- !u!54 &494960574994223375
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -118,7 +142,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -133,7 +157,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &8769492011553568701
 MonoBehaviour:
@@ -147,7 +171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04c672cbf6f42f541923baaee28f9316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
   audioClip: {fileID: 8300000, guid: 447cdf2aa22ac794188a7301ad14e3cb, type: 3}
 --- !u!82 &-2411278649908327421
 AudioSource:

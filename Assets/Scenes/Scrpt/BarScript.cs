@@ -8,7 +8,7 @@ public class BarScript : MonoBehaviour
     public float speed = 10.0f; // 球の移動速度
 
     private bool shoot = false;
-    GameObject newBall = null;
+    public static GameObject newBall = null;
 
     [Header("画面上限")]
     [SerializeField] private float XLimit = 15.5f;
@@ -26,6 +26,7 @@ public class BarScript : MonoBehaviour
         Vector3 ballShootPos = new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z);
         newBall = Instantiate(ballPrefab, ballShootPos, Quaternion.identity);
         newBall.tag = "Ball";   // クローンにタグBallを追加
+        Debug.Log(newBall);
 
     }
 

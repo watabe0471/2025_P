@@ -6,7 +6,9 @@ public class ItemSpawn : MonoBehaviour
 {
 
     [Header("アイテム")]
-    public GameObject ItemPrefab;
+    public GameObject ItemPrefab1;
+    public GameObject ItemPrefab2;
+
 
     [Header("スポーン間隔（秒）")]
     public float spawnInterval = 5f;
@@ -18,6 +20,7 @@ public class ItemSpawn : MonoBehaviour
     public float spawnHeight = 10f;
 
     private float timer = 0f;
+    public static int spawnNum = 0;
 
     void Update()
     {
@@ -38,7 +41,17 @@ public class ItemSpawn : MonoBehaviour
     {
         float randomX = Random.Range(spawnRangeX.x, spawnRangeX.y);
         Vector3 spawnPos = new Vector3(randomX, spawnHeight, 0.0f);
-
-        Instantiate(ItemPrefab, spawnPos, Quaternion.identity);
+        // spawnNum = Random.Range(0, 3);
+        switch (spawnNum)
+        {
+            case 0:
+                Instantiate(ItemPrefab1, spawnPos, Quaternion.identity);
+                return;
+            case 1:
+                Instantiate(ItemPrefab2, spawnPos, Quaternion.identity);
+                return;
+            default:
+                return;
+        }
     }
 }
