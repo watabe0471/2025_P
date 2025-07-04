@@ -46,7 +46,7 @@ public class ItemSpawn : MonoBehaviour
     {
         float randomX = Random.Range(spawnRangeX.x, spawnRangeX.y);
         Vector3 spawnPos = new Vector3(randomX, spawnHeight, 0.0f);
-        spawnNum = Random.Range(0, 1);
+        spawnNum = Random.Range(0, 2);
         switch (spawnNum)
         {
             case 0:

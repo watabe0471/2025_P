@@ -472,7 +472,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  speed: 10
   XLimit: 15.5
   YLimit: 9
   ballPrefab: {fileID: 3698492341016241133, guid: ae4996c57377be64ea91ba1d1023905f, type: 3}
@@ -987,7 +986,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9db899789e8e3e419fa6dc7418edc45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemPrefab: {fileID: 7244255421683898488, guid: c122f136bc8450f4490a0a1c8d464cc9, type: 3}
+  ItemPrefab1: {fileID: 0}
+  ItemPrefab2: {fileID: 0}
   spawnInterval: 10
   spawnRangeX: {x: -16, y: 16}
   spawnHeight: 10
@@ -1157,7 +1157,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 553dc7b991b0bdd40852a22cb6caf105, type: 2}
+  - {fileID: 2100000, guid: 55a4c6538f4acee4db7ad806df87d7dc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
