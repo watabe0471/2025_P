@@ -44,7 +44,6 @@ public class ItemScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
         
     }
 
@@ -68,12 +67,7 @@ public class ItemScript : MonoBehaviour
 
 
                     newBall = Instantiate(ballPrefab, spawnPos1, Quaternion.identity);
-
-
-                    BallScript.rb = GetComponent<Rigidbody>();
-                    Debug.Log("複製を入力" + BallScript.rb);
-                    BallScript.LaunchBall();
-                    Debug.Log("球を射出");
+                    newBall.tag = "Ball";
 
                     // アイテムを消す
                     Destroy(gameObject);
@@ -93,5 +87,10 @@ public class ItemScript : MonoBehaviour
                     return;
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        BallScript.LaunchBall();
     }
 }

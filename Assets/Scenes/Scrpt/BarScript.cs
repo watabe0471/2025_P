@@ -42,7 +42,6 @@ public class BarScript : MonoBehaviour
         {
             shoot = true;
             LaunchBall();
-            newBall = null;
         }
             // ë≈Ç¡ÇƒÇ¢Ç»ÇØÇÍÇŒí«è]
         if (shoot == false)
