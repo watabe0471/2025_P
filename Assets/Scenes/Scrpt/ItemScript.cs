@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class ItemScript : MonoBehaviour
 {
-    public GameObject Ball;
-    BallScript ballscript;
-
-    public float fallSpeed = 5f;
+    [SerializeField] float fallSpeed = 5f;
 
     public GameObject ballPrefab;         // 生成するボールPrefab
     public Transform ballSpawnPoint;      // ボール生成位置
+
     private Transform ballnowPosition = null;   // ボールの今の位置
     private Rigidbody rb;
+
+    [SerializeField]private Vector3 BallShootPoint;
 
     private GameObject newBall = null;
     private bool on = false;
@@ -22,15 +22,10 @@ public class ItemScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-        if (ballSpawnPoint == null)
-        {
-            GameObject barObj = GameObject.FindGameObjectWithTag("bar");
-            if (barObj != null)
-            {
-                ballSpawnPoint = barObj.transform;
-            }
-        }
-        
+        if (ballSpawnPoint != null) return;
+
+         ballSpawnPoint = BarScript.BarPos;
+
     }
 
     // Update is called once per frame
@@ -38,6 +33,7 @@ public class ItemScript : MonoBehaviour
     {
         // 一定速度でY軸下方向に移動
         transform.position += Vector3.down * fallSpeed * Time.deltaTime;
+
 
         // 一定高さ以下で消す（地面など）
         if (transform.position.y < -10f)
@@ -55,6 +51,7 @@ public class ItemScript : MonoBehaviour
             int ItemNum = ItemSpawn.spawnNum;   // アイテム番号を取得
             if (ballPrefab == null)
             {
+                Debug.Log("球の生成エラー");
                 return;
             }
                 switch (ItemNum)
@@ -73,6 +70,9 @@ public class ItemScript : MonoBehaviour
                     Destroy(gameObject);
                     return;
                 case 1:
+                    
+                    return;
+                case 2:
                     return;
                     Vector3 spawnPos2 = BarScript.newBall.transform.position;
 
@@ -91,10 +91,9 @@ public class ItemScript : MonoBehaviour
 
     private void OnDestroy()
     {
-        if(on == true)
-        {
-            BallScript.LaunchBall();
-            on = false;
-        }
+        if (on != true) return; // 
+
+        BallScript.LaunchBall();
+        on = false;
     }
 }

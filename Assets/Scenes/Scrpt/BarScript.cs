@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class BarScript : MonoBehaviour
 {
-    public float moveSpeed = 20.0f; // 移動速度
+    [SerializeField] float moveSpeed = 20.0f;   // バーの移動速度
+    public static bool shoot = false;           // 球が射出されているか
 
-    public static bool shoot = false;
-    public static GameObject newBall = null;
+    public static GameObject newBall = null;    // 
 
+    GameObject[] balls;
     [Header("画面上限")]
     [SerializeField] private float XLimit = 15.5f;
     [SerializeField] private float YLimit = 9.0f;
 
     [Header("球のオブジェクト")]
     [SerializeField] private GameObject ballPrefab;
+
+    public static Transform BarPos;
 
     void Start()
     {
@@ -23,7 +26,7 @@ public class BarScript : MonoBehaviour
         Vector3 ballShootPos = new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z);
         newBall = Instantiate(ballPrefab, ballShootPos, Quaternion.identity);
         newBall.tag = "Ball";   // クローンにタグBallを追加
-        Debug.Log(newBall);
+        shoot = false;
 
     }
 
@@ -35,29 +38,22 @@ public class BarScript : MonoBehaviour
         // 画面から飛び出ない様に
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -XLimit, XLimit), Mathf.Clamp(transform.position.y, -YLimit, YLimit-1.0f), 0);
         // Mathf.Clamp(制限したい値、最小値、最大値)
+        BarPos = transform;
 
-        // スペースで打つ
-        if (Input.GetKeyDown(KeyCode.Space) && shoot == false)
+        // 打っていなければ追従
+        if (shoot != false) return;
+
+        if (Input.GetKeyDown(KeyCode.Space))    // スペースで打つ
         {
             shoot = true;
             LaunchBall();
         }
-            // 打っていなければ追従
-        if (shoot == false)
-        {
-            newBall.transform.position = transform.position + new Vector3(0.0f, 1.0f, 0.0f);
-        }
-
+        newBall.transform.position = transform.position + new Vector3(0.0f, 1.0f, 0.0f);
     }
     private void LaunchBall()
     {
-        Vector3 randomDirection = new Vector3(
-    Random.Range(1f, 3f),
-    1f,
-    0f
-).normalized;
-
-        BallScript.rb.AddForce(randomDirection * BallScript.speed, ForceMode.Impulse);
+        Vector3 randomDirection = new Vector3(Random.Range(1f, 3f), 1f, 0f).normalized; // 射出方向を決定
+        BallScript.rb.AddForce(randomDirection * BallScript.speed, ForceMode.Impulse);  // 射出
     }
 }
 

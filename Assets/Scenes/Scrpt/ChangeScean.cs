@@ -53,7 +53,6 @@ public class ChangeScean : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // ClearToggle.interactable = false;   // UIを透明に
         NextSceneName = SceneManager.GetActiveScene().name;
 
         // ステージ名から次のステージを取得
@@ -81,10 +80,8 @@ public class ChangeScean : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.Space))
                     {
                         GameMode = false;
-                        Debug.Log(GameMode);
                         Debug.Log("ゲームオーバーになってもう一度開始しました");
                         Time.timeScale = 1;
-                        BarScript.shoot = false;
                         SceneManager.LoadScene(SceneManager.GetActiveScene().name);    // 現在のシーンへ
                     }
                     break;
