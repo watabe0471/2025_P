@@ -24,10 +24,12 @@ public class ItemSpawn : MonoBehaviour
 
     void Update()
     {
+        // Žn‚Ü‚Á‚Ä‚¢‚È‚¯‚ê‚Î“®‚©‚È‚¢
         if(BarScript.shoot != true)
         {
             return;
         }
+
         timer += Time.deltaTime;
         if (timer >= spawnInterval)
         {

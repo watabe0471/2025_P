@@ -84,6 +84,7 @@ public class ChangeScean : MonoBehaviour
                         Debug.Log(GameMode);
                         Debug.Log("ゲームオーバーになってもう一度開始しました");
                         Time.timeScale = 1;
+                        BarScript.shoot = false;
                         SceneManager.LoadScene(SceneManager.GetActiveScene().name);    // 現在のシーンへ
                     }
                     break;

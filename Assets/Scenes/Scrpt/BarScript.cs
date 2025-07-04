@@ -5,7 +5,6 @@ using UnityEngine;
 public class BarScript : MonoBehaviour
 {
     public float moveSpeed = 20.0f; // 移動速度
-    public float speed = 10.0f; // 球の移動速度
 
     public static bool shoot = false;
     public static GameObject newBall = null;
@@ -58,25 +57,7 @@ public class BarScript : MonoBehaviour
     0f
 ).normalized;
 
-        BallScript.rb.AddForce(randomDirection * speed, ForceMode.Impulse);
+        BallScript.rb.AddForce(randomDirection * BallScript.speed, ForceMode.Impulse);
     }
-
-
-//    public void LaunchBall(GameObject newBall)
-//    {
-        
-//        // 球を生成
-//        Vector3 ballShootPos = new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z);
-//        newBall = Instantiate(ballPrefab,ballShootPos, Quaternion.identity);
-//        newBall.tag = "Ball";   // クローンにタグBallを追加
-    
-//        Vector3 randomDirection = new Vector3(
-//    Random.Range(0f, 3f),
-//    1f,
-//    0f
-//).normalized;
-//    }
-
-
 }
 
