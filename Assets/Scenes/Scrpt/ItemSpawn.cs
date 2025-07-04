@@ -24,11 +24,16 @@ public class ItemSpawn : MonoBehaviour
 
     void Update()
     {
+        if(BarScript.shoot != true)
+        {
+            return;
+        }
         timer += Time.deltaTime;
         if (timer >= spawnInterval)
         {
             SpawnItem();
             timer = 0f;
+            spawnInterval = Random.Range(3f, 8f);
         }
 
         if (transform.position.y < -10f)

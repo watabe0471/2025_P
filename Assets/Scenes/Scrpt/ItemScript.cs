@@ -68,7 +68,7 @@ public class ItemScript : MonoBehaviour
 
                     newBall = Instantiate(ballPrefab, spawnPos1, Quaternion.identity);
                     newBall.tag = "Ball";
-
+                    on = true;
                     // ÉAÉCÉeÉÄÇè¡Ç∑
                     Destroy(gameObject);
                     return;
@@ -91,6 +91,10 @@ public class ItemScript : MonoBehaviour
 
     private void OnDestroy()
     {
-        BallScript.LaunchBall();
+        if(on == true)
+        {
+            BallScript.LaunchBall();
+            on = false;
+        }
     }
 }

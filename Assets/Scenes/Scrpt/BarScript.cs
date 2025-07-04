@@ -7,7 +7,7 @@ public class BarScript : MonoBehaviour
     public float moveSpeed = 20.0f; // ˆÚ“®‘¬“x
     public float speed = 10.0f; // ‹…‚ÌˆÚ“®‘¬“x
 
-    private bool shoot = false;
+    public static bool shoot = false;
     public static GameObject newBall = null;
 
     [Header("‰æ–ÊãŒÀ")]
