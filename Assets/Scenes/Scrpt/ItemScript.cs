@@ -15,6 +15,7 @@ public class ItemScript : MonoBehaviour
     private Rigidbody rb;
 
     private GameObject newBall = null;
+    private bool on = false;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +44,8 @@ public class ItemScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -65,6 +68,12 @@ public class ItemScript : MonoBehaviour
 
 
                     newBall = Instantiate(ballPrefab, spawnPos1, Quaternion.identity);
+
+
+                    BallScript.rb = GetComponent<Rigidbody>();
+                    Debug.Log("複製を入力" + BallScript.rb);
+                    BallScript.LaunchBall();
+                    Debug.Log("球を射出");
 
                     // アイテムを消す
                     Destroy(gameObject);

@@ -16,11 +16,9 @@ public class BarScript : MonoBehaviour
 
     [Header("球のオブジェクト")]
     [SerializeField] private GameObject ballPrefab;
-    Rigidbody rb;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
 
         // ボールを生成
         Vector3 ballShootPos = new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z);
@@ -36,19 +34,35 @@ public class BarScript : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical") * moveSpeed * Time.deltaTime;   // 垂直方向の移動
         transform.position += new Vector3(moveX, moveY, 0);
         // 画面から飛び出ない様に
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -XLimit, XLimit), Mathf.Clamp(transform.position.y, -YLimit, YLimit-1.0f), 0);   
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -XLimit, XLimit), Mathf.Clamp(transform.position.y, -YLimit, YLimit-1.0f), 0);
         // Mathf.Clamp(制限したい値、最小値、最大値)
 
         // スペースで打つ
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && shoot == false)
+        {
             shoot = true;
-        // 打っていなければ追従
+            LaunchBall();
+            newBall = null;
+        }
+            // 打っていなければ追従
         if (shoot == false)
         {
             newBall.transform.position = transform.position + new Vector3(0.0f, 1.0f, 0.0f);
         }
 
     }
+    private void LaunchBall()
+    {
+        Vector3 randomDirection = new Vector3(
+    Random.Range(1f, 3f),
+    1f,
+    0f
+).normalized;
+
+        BallScript.rb.AddForce(randomDirection * speed, ForceMode.Impulse);
+    }
+
+
 //    public void LaunchBall(GameObject newBall)
 //    {
         

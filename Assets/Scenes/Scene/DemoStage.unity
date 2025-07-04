@@ -677,10 +677,11 @@ MonoBehaviour:
   Stage3: Stage3
   Stage4: GameClear
   ClearUI: {fileID: 3250589135514736681, guid: 3c31894fd769edf4f86ed055c74e09d0, type: 3}
-  ClearToggle: {fileID: 1431481556}
   UIpos: {x: 0, y: 6, z: -1}
+  BGpos: {x: 0, y: 0, z: -1.2}
   OverUI: {fileID: 3250589135514736681, guid: 3c31894fd769edf4f86ed055c74e09d0, type: 3}
-  OverToggle: {fileID: 1431481556}
+  RetryUI: {fileID: 0}
+  ClearBack: {fileID: 0}
 --- !u!1001 &544041514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2591,7 +2592,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 553dc7b991b0bdd40852a22cb6caf105, type: 2}
+  - {fileID: 2100000, guid: 55a4c6538f4acee4db7ad806df87d7dc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

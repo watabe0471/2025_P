@@ -6,13 +6,13 @@ public class BallScript : MonoBehaviour
 {
     [SerializeField] public static float speed = 10f;
 
-    private static Rigidbody rb;
+    public static Rigidbody rb;
     public static Vector3 velo;
 
     [SerializeField] private AudioClip audioClip = null; // 効果音
     private AudioSource audioSource; // AudioSource
 
-    private bool GameState = false; // ゲームスタートフラグ
+    public static bool GameState = false; // ゲームスタートフラグ
 
 
     void Start()
@@ -25,26 +25,26 @@ public class BallScript : MonoBehaviour
     // 毎フレーム速度をチェックする
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && GameState == false)
-        {
-            LaunchBall();
-            
-            GameState = true; // ゲームがスタートした
+        //if (Input.GetKeyDown(KeyCode.Space) && GameState == false)
+        //{
+        //    LaunchBall();
 
-        }
+        //    GameState = true; // ゲームがスタートした
+
+        //}
         rb = GetComponent<Rigidbody>();
         velo = rb.velocity;
-        Debug.Log(velo);
     }
 
-    void LaunchBall()
+    public static void LaunchBall()
     {
         Vector3 randomDirection = new Vector3(
             Random.Range(0f, 3f),
             1f,
             0f
         ).normalized;
-
+        Debug.Log(rb);
+        
         rb.AddForce(randomDirection * speed, ForceMode.Impulse);
     }
     // カメラ外に出たら作動する関数
