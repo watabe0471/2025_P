@@ -20,7 +20,7 @@ public class NonBrakeScript : MonoBehaviour
 
             foreach (GameObject block in sameTypeBlocks)
             {
-                Debug.Log("‹…‚ª‰ó‚ê‚È‚¢•Ç‚É“–‚½‚Á‚½");
+                // Debug.Log("‹…‚ª‰ó‚ê‚È‚¢•Ç‚É“–‚½‚Á‚½");
                 Vector3 AnimePos = new Vector3(block.transform.position.x, block.transform.position.y, block.transform.position.z + -0.55f);
                 Instantiate(G_Material, AnimePos, Quaternion.identity);
 

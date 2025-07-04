@@ -20,24 +20,22 @@ public class ItemSpawn : MonoBehaviour
     public float spawnHeight = 10f;
 
     private float timer = 0f;
-    public static int spawnNum = 0;
+    public static int spawnNum = 1;
 
     void Update()
     {
         // 始まっていなければ動かない
-        if(BarScript.shoot != true)
-        {
-            return;
-        }
+        if(BarScript.shoot != true) return;
 
         timer += Time.deltaTime;
         if (timer >= spawnInterval)
         {
-            SpawnItem();
-            timer = 0f;
-            spawnInterval = Random.Range(3f, 8f);
+            SpawnItem();    // アイテムを生成
+            timer = 0f;     // タイマーをリセット
+            spawnInterval = Random.Range(3f, 8f);   // 次の生成までの次官をランダムに
         }
 
+        // 自壊
         if (transform.position.y < -10f)
         {
             Destroy(gameObject);
@@ -48,7 +46,7 @@ public class ItemSpawn : MonoBehaviour
     {
         float randomX = Random.Range(spawnRangeX.x, spawnRangeX.y);
         Vector3 spawnPos = new Vector3(randomX, spawnHeight, 0.0f);
-        // spawnNum = Random.Range(0, 3);
+        spawnNum = Random.Range(0, 1);
         switch (spawnNum)
         {
             case 0:
