@@ -991,8 +991,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9db899789e8e3e419fa6dc7418edc45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemPrefab1: {fileID: 0}
-  ItemPrefab2: {fileID: 0}
+  ItemPrefab1: {fileID: 7244255421683898488, guid: c122f136bc8450f4490a0a1c8d464cc9, type: 3}
+  ItemPrefab2: {fileID: 7244255421683898488, guid: c122f136bc8450f4490a0a1c8d464cc9, type: 3}
   spawnInterval: 10
   spawnRangeX: {x: -16, y: 16}
   spawnHeight: 10
