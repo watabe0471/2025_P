@@ -10,10 +10,13 @@ public class ChangeScean : MonoBehaviour
     // ステージ名
     [Header("ステージ")]
     [SerializeField] string Title;
-    [SerializeField] string Stage1;
-    [SerializeField] string Stage2;
-    [SerializeField] string Stage3;
-    [SerializeField] string Stage4;
+    [SerializeField] string Stage1 = "Stage1";
+    [SerializeField] string Stage2 = "Stage2";
+    [SerializeField] string Stage3 = "Stage3";
+    [SerializeField] string Stage4 = "Stage4";
+    [SerializeField] string Stage5 = "Stage5";
+    [SerializeField] string Stage6 = "Stage6";
+    [SerializeField] string Stage7 = "Stage7";
 
     private GameObject[] BallTags;
     private GameObject[] BlockTags;
@@ -42,7 +45,11 @@ public class ChangeScean : MonoBehaviour
         Stage1,
         Stage2,
         Stage3,
-        Stage4
+        Stage4,
+        Stage5,
+        Stage6,
+        Stage7,
+
     }
     public enum GameSit     // ゲームの状態の識別
     {
@@ -63,6 +70,13 @@ public class ChangeScean : MonoBehaviour
                 e_nowStage = e_Stage.Stage3;
             else if (NextSceneName == Stage3)
                 e_nowStage = e_Stage.Stage4;
+            else if (NextSceneName == Stage4)
+                e_nowStage = e_Stage.Stage5;
+            else if (NextSceneName == Stage5)
+                e_nowStage = e_Stage.Stage6;
+            else if (NextSceneName == Stage6)
+                e_nowStage = e_Stage.Stage7;
+
         }
     }
 
@@ -152,6 +166,15 @@ public class ChangeScean : MonoBehaviour
                 break;
             case e_Stage.Stage4:
                 SceneManager.LoadScene(Stage4);
+                break;
+            case e_Stage.Stage5:
+                SceneManager.LoadScene(Stage5);
+                break;
+            case e_Stage.Stage6:
+                SceneManager.LoadScene(Stage6);
+                break;
+            case e_Stage.Stage7:
+                SceneManager.LoadScene(Stage7);
                 break;
 
             default:
