@@ -54,44 +54,34 @@ public class BallScript : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-
-//        rb = GetComponent<Rigidbody>();
-        //if (rb != null)
-        //{
-
-        //    var Directionz     = rb.velocity;
-        //    var nomal = new Vector3(0.0f, 1.0f, 0.0f);
-        //        //collision.gameObject.transform.up;
-        //    var result = Vector3.Reflect(Direction, nomal);
-        //    Debug.Log("result" + result + "Direction" + Direction);
-
-
-            
-        //    if (collision.gameObject.tag == "bar")
-        //    {
-
-        //            rb.AddForce(result, ForceMode.Impulse);
-        //    }
-        //}
-        //else
-        //{
-        //    Debug.Log("nullになってる");
-        //}
-        // 音を鳴らす
-        if(audioClip != null)
+        if (audioClip != null)
         {
-            // ブロックAに当たったら
-            if (collision.gameObject.tag == "BlockTypeA")
+            // ブロック系オブジェクトに当たったら効果音を鳴らす
+            if (collision.gameObject.tag == "BlockTypeA" || collision.gameObject.tag == "BlockTypeB")
             {
                 Debug.Log("ブロックに当たった");
-                audioSource.PlayOneShot(audioClip); // 効果音を鳴らす
-            }
-            // ブロックBに当たったら
-            if (collision.gameObject.tag == "BlockTypeB")
-            {
-                Debug.Log("ブロックに当たった");
-                audioSource.PlayOneShot(audioClip); // 効果音を鳴らす
+                audioSource.PlayOneShot(audioClip);
             }
         }
+
+        // 入射ベクトルを取得（衝突前の速度）
+        Vector3 incident = rb.velocity.normalized;
+
+        // 接触点の法線ベクトルを取得
+        ContactPoint contact = collision.contacts[0];
+        Vector3 normal = contact.normal;
+
+        // 反射ベクトルを計算
+        Vector3 reflected = Vector3.Reflect(incident, normal);
+
+        // ログ出力（角度も計算してみる）
+        float angleOfIncidence = Vector3.Angle(-normal, incident);   // 入射角
+        float angleOfReflection = Vector3.Angle(normal, reflected);  // 反射角
+
+        Debug.Log($"入射ベクトル: {incident}, 法線: {normal}, 反射ベクトル: {reflected}");
+        Debug.Log($"入射角: {angleOfIncidence:F2}°, 反射角: {angleOfReflection:F2}°");
+
+        // もし必要なら、反射方向に速度を強制的に変更
+        //rb.velocity = reflected * rb.velocity.magnitude;
     }
 }
