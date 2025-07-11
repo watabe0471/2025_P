@@ -23,8 +23,9 @@ public class ChangeScean : MonoBehaviour
 
     [Header("クリア時のUI")]
     [SerializeField] GameObject ClearUI;    // クリア時に表示される文字
-    
-    [SerializeField] Vector3 UIpos = new Vector3(0.0f, 6.0f, -2.0f); // UIの表示場所
+
+    // UIの表示場所
+    [SerializeField] Vector3 UIpos = new Vector3(0.0f, 6.0f, -2.0f);
     [SerializeField] Vector3 BGpos = new Vector3(0.0f, 0.0f, -1.2f);
 
     [Header("ゲームオーバー時のUI")]
@@ -49,7 +50,6 @@ public class ChangeScean : MonoBehaviour
         Stage5,
         Stage6,
         Stage7,
-
     }
     public enum GameSit     // ゲームの状態の識別
     {
@@ -60,7 +60,8 @@ public class ChangeScean : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        NextSceneName = SceneManager.GetActiveScene().name;
+        // 現在のシーン名を取得
+         NextSceneName = SceneManager.GetActiveScene().name;
 
         // ステージ名から次のステージを取得
         {
@@ -76,13 +77,13 @@ public class ChangeScean : MonoBehaviour
                 e_nowStage = e_Stage.Stage6;
             else if (NextSceneName == Stage6)
                 e_nowStage = e_Stage.Stage7;
-
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+
 
         if (GameMode == true)
         {
@@ -119,37 +120,49 @@ public class ChangeScean : MonoBehaviour
     // フレーム毎のUpdateS
     private void FixedUpdate()
     {
+        // ボールを全て取得
         BallTags = GameObject.FindGameObjectsWithTag("Ball");
-        // Debug.Log(BallTags.Length); //tagObjects.Lengthはオブジェクトの数
+        // 破壊可能ブロックを取得
+        BlockTags = GameObject.FindGameObjectsWithTag("BlockTypeB");
+
         // ゲーム内のボールが全て無くなったら
-        if (BallTags.Length == 0)
+        if (BallTags.Length <= 0)
         {
+            // ゲームオーバー設定
             NowGame = GameSit.GameOver;
-            //OverToggle.interactable = true;    // 背景を不透明に
+            
+            // ゲームオーバ画面を表示
             Instantiate(ClearBack, BGpos, Quaternion.identity);//不透明の背景を表示
             Instantiate(OverUI, UIpos, Quaternion.identity);   // ゲームオーバーの文字を表示
+
+            // ゲームオーバー処理
             Time.timeScale = 0;     // ゲームを止める
             GameMode = true;        // 止まった時フラグ
-            Debug.Log("ゲームが止まった");
         }
+
         // ゲーム内の破壊可能オブジェクトが無くなったら
-        BlockTags = GameObject.FindGameObjectsWithTag("BlockTypeB");
-        if (BlockTags.Length == 0)
+        if (BlockTags.Length <= 0)
         {
+            // ゲームクリア設定
             NowGame = GameSit.GameClear;
-            //ClearToggle.interactable = true;    // 背景を不透明に
+
+            //  ゲームクリア画面
             Instantiate(ClearBack, BGpos, Quaternion.identity);//不透明の背景を表示
             Instantiate(ClearUI, UIpos, Quaternion.identity);   // ゲームオーバーの文字を表示
+
+            // ゲームクリア処理
             Time.timeScale = 0;     // ゲームを止める
             GameMode = true;        // 止まった時フラグ
-            Debug.Log("ゲームが止まった");
         }
 
 
     }
+
+
+    // ステージ遷移
+    // 現在のステージを参照して次のステージに移動する
     public void SceneChange(e_Stage NowStage)
     {
-        Debug.Log("ステージを移動");
         switch (NowStage)        // ステージによって様々なステージに移動するように
         {
             case e_Stage.Title:

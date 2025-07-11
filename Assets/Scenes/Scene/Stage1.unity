@@ -1231,7 +1231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemPrefab1: {fileID: 7244255421683898488, guid: c122f136bc8450f4490a0a1c8d464cc9, type: 3}
-  ItemPrefab2: {fileID: 7244255421683898488, guid: c122f136bc8450f4490a0a1c8d464cc9, type: 3}
+  ItemPrefab2: {fileID: 7244255421683898488, guid: d0d0ff72e183c854c8535c8bcd3a6720, type: 3}
   spawnInterval: 5
   spawnRangeX: {x: -16, y: 16}
   spawnHeight: 10
