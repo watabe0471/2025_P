@@ -58,7 +58,6 @@ public class kanichange : MonoBehaviour
         if (Input.anyKey && FadeNow == false)
         {
             _fadeAlpha = 0.0f;
-            Debug.Log("フェード始めました");
             _isfadeOut = true;
         }
 

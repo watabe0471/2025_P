@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class NonBrakeScript : MonoBehaviour
 {
-    public Material changedMaterial;
+    
     [SerializeField] private GameObject G_Material;
+
     private Dictionary<GameObject, Material> originalMaterial = new Dictionary<GameObject, Material>();
 
     private void OnCollisionEnter(Collision collision)

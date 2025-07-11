@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BallScript : MonoBehaviour
 {
+    // ボールの移動速度
     [SerializeField] public static float speed = 10f;
 
     public static Rigidbody rb;
@@ -25,15 +26,15 @@ public class BallScript : MonoBehaviour
     // 毎フレーム速度をチェックする
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Space) && GameState == false)
-        //{
-        //    LaunchBall();
-
-        //    GameState = true; // ゲームがスタートした
-
-        //}
-        rb = GetComponent<Rigidbody>();
-        velo = rb.velocity;
+        // rb = GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            if (rb.velocity != Vector3.zero)
+            {
+                rb.velocity = rb.velocity.normalized * speed;
+                velo = rb.velocity;
+            }
+        }
     }
 
     public static void LaunchBall()
@@ -59,12 +60,12 @@ public class BallScript : MonoBehaviour
             // ブロック系オブジェクトに当たったら効果音を鳴らす
             if (collision.gameObject.tag == "BlockTypeA" || collision.gameObject.tag == "BlockTypeB")
             {
-                Debug.Log("ブロックに当たった");
                 audioSource.PlayOneShot(audioClip);
             }
         }
 
         // 入射ベクトルを取得（衝突前の速度）
+        if (rb == null) return;
         Vector3 incident = rb.velocity.normalized;
 
         // 接触点の法線ベクトルを取得
@@ -78,8 +79,8 @@ public class BallScript : MonoBehaviour
         float angleOfIncidence = Vector3.Angle(-normal, incident);   // 入射角
         float angleOfReflection = Vector3.Angle(normal, reflected);  // 反射角
 
-        Debug.Log($"入射ベクトル: {incident}, 法線: {normal}, 反射ベクトル: {reflected}");
-        Debug.Log($"入射角: {angleOfIncidence:F2}°, 反射角: {angleOfReflection:F2}°");
+    //    Debug.Log($"入射ベクトル: {incident}, 法線: {normal}, 反射ベクトル: {reflected}");
+    //    Debug.Log($"入射角: {angleOfIncidence:F2}°, 反射角: {angleOfReflection:F2}°");
 
         // もし必要なら、反射方向に速度を強制的に変更
         //rb.velocity = reflected * rb.velocity.magnitude;

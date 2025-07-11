@@ -18,6 +18,7 @@ public class ChangeScean : MonoBehaviour
     [SerializeField] string Stage6 = "Stage6";
     [SerializeField] string Stage7 = "Stage7";
 
+    // 入れ物
     private GameObject[] BallTags;
     private GameObject[] BlockTags;
 
@@ -34,7 +35,8 @@ public class ChangeScean : MonoBehaviour
 
     public GameObject ClearBack; //クリア、ゲームオーバー時の背景
 
-    private string NextSceneName;    // 現在シーン名
+
+    private string NowSceneName;    // 現在シーン名
     private GameSit NowGame = GameSit.InGame;   // ゲームの状態
     private e_Stage e_nowStage = e_Stage.Title; // 現在のシーン番号
 
@@ -61,21 +63,21 @@ public class ChangeScean : MonoBehaviour
     void Start()
     {
         // 現在のシーン名を取得
-         NextSceneName = SceneManager.GetActiveScene().name;
+        NowSceneName = SceneManager.GetActiveScene().name;
 
         // ステージ名から次のステージを取得
         {
-            if (NextSceneName == Stage1)
+            if (NowSceneName == Stage1)
                 e_nowStage = e_Stage.Stage2;
-            else if (NextSceneName == Stage2)
+            else if (NowSceneName == Stage2)
                 e_nowStage = e_Stage.Stage3;
-            else if (NextSceneName == Stage3)
+            else if (NowSceneName == Stage3)
                 e_nowStage = e_Stage.Stage4;
-            else if (NextSceneName == Stage4)
+            else if (NowSceneName == Stage4)
                 e_nowStage = e_Stage.Stage5;
-            else if (NextSceneName == Stage5)
+            else if (NowSceneName == Stage5)
                 e_nowStage = e_Stage.Stage6;
-            else if (NextSceneName == Stage6)
+            else if (NowSceneName == Stage6)
                 e_nowStage = e_Stage.Stage7;
         }
     }
@@ -83,38 +85,32 @@ public class ChangeScean : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // ゲームが止まっているか
+        if (GameMode != true) return;
 
-
-        if (GameMode == true)
+        // ゲームがどの状態なのか
+        switch (NowGame)
         {
-            switch (NowGame)
-            {
+            case GameSit.GameOver:  // ゲームオーバーなら
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    GameMode = false;   // ゲームが動くように
+                    Time.timeScale = 1; // ゲーム時間を進める
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);    // 現在のシーンへ
+                }
+                break;
 
-                case GameSit.GameOver:  // ゲームオーバーなら
-
-                    if (Input.GetKeyDown(KeyCode.Space))
-                    {
-                        GameMode = false;
-                        Debug.Log("ゲームオーバーになってもう一度開始しました");
-                        Time.timeScale = 1;
-                        SceneManager.LoadScene(SceneManager.GetActiveScene().name);    // 現在のシーンへ
-                    }
-                    break;
-
-                case GameSit.GameClear: // ゲームクリアなら
-                    if (Input.GetKeyDown(KeyCode.Space))
-                    {
-                        GameMode = false;
-                        Debug.Log("ステージをclearしました");
-                        Time.timeScale = 1;
-                        SceneChange(e_nowStage);
-                    }
-                    break;
-
-
-                default:    // それ以外
-                    break;
-            }
+            case GameSit.GameClear: // ゲームクリアなら
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    GameMode = false;   // ゲームが動くように
+                    Time.timeScale = 1; // ゲーム時間を進める
+                    SceneChange(e_nowStage);        // 次のシーンへ
+                }
+                break;
+                
+            default:    // それ以外
+                break;
         }
     }
     // フレーム毎のUpdateS
@@ -191,30 +187,7 @@ public class ChangeScean : MonoBehaviour
                 break;
 
             default:
-
                 break;
         }
-
-
-
-        //switch(NowStage)        // ステージによって様々なステージに移動するように
-        //{
-        //    case e_Stage.Title:
-        //        // SceneManager.LoadScene();
-        //        break;
-        //    case e_Stage.Stage1:
-        //        SceneManager.LoadScene(Stage1);
-        //        break;
-        //    case e_Stage.Stage2:
-
-        //        break;
-        //    case e_Stage.Stage3:
-        //        SceneManager.LoadScene(Stage3);
-        //        break;
-
-        //    default:
-
-        //        break;
-        //}
     }
 }
