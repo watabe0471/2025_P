@@ -135,7 +135,7 @@ public class ChangeScean : MonoBehaviour
             // ゲームオーバ画面を表示
             Instantiate(ClearBack, BGpos, Quaternion.identity);//不透明の背景を表示
             Instantiate(OverUI, UIpos, Quaternion.identity);   // ゲームオーバーの文字を表示
-            Instantiate(RetryUI, RETRYpos, Quaternion.identity);   // リトライの文字を表示
+            // Instantiate(RetryUI, RETRYpos, Quaternion.identity);   // リトライの文字を表示
 
             // ゲームオーバー処理
             Time.timeScale = 0;     // ゲームを止める
