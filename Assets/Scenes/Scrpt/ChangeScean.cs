@@ -22,17 +22,22 @@ public class ChangeScean : MonoBehaviour
     private GameObject[] BallTags;
     private GameObject[] BlockTags;
 
+    // UIの表示場所
+    [Header("UIの表示位置")]
+    [SerializeField] Vector3 UIpos = new Vector3(0.0f, 6.0f, -2.0f);
+    [SerializeField] Vector3 RETRYpos = new Vector3(0.0f, -6, -2.0f);
+    [SerializeField] Vector3 BGpos = new Vector3(0.0f, 0.0f, -1.2f);
+
     [Header("クリア時のUI")]
     [SerializeField] GameObject ClearUI;    // クリア時に表示される文字
 
-    // UIの表示場所
-    [SerializeField] Vector3 UIpos = new Vector3(0.0f, 6.0f, -2.0f);
-    [SerializeField] Vector3 BGpos = new Vector3(0.0f, 0.0f, -1.2f);
+
 
     [Header("ゲームオーバー時のUI")]
     [SerializeField] GameObject OverUI;    // オーバー時に表示される文字
-    [SerializeField] GameObject RetryUI;
+    [SerializeField] GameObject RetryUI;    
 
+    [Header("背景")]
     public GameObject ClearBack; //クリア、ゲームオーバー時の背景
 
 
@@ -130,6 +135,7 @@ public class ChangeScean : MonoBehaviour
             // ゲームオーバ画面を表示
             Instantiate(ClearBack, BGpos, Quaternion.identity);//不透明の背景を表示
             Instantiate(OverUI, UIpos, Quaternion.identity);   // ゲームオーバーの文字を表示
+            Instantiate(RetryUI, RETRYpos, Quaternion.identity);   // リトライの文字を表示
 
             // ゲームオーバー処理
             Time.timeScale = 0;     // ゲームを止める
