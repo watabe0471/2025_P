@@ -183,7 +183,7 @@ public class ChangeScean : MonoBehaviour
                 SceneManager.LoadScene(Stage6);
                 break;
             case e_Stage.Stage7:
-                SceneManager.LoadScene(Stage7);
+                SceneManager.LoadScene(Title);
                 break;
 
             default:
